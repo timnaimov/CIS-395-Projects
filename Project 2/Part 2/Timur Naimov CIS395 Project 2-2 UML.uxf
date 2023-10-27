@@ -1,0 +1,131 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>30</x><y>160</y><w>170</w><h>160</h></coordinates><panel_attributes>_Staff_
+--
+staffNo (PK)
+name
+gender
+dob
+position
+salary
+branchNo (FK)
+supervisorStaffNo (FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>230</y><w>160</w><h>160</h></coordinates><panel_attributes>_Client_
+--
+clientNo (PK)
+clientName
+branchNo (PK, FK)
+branchAddress
+staffName
+registerDate
+clientTelNo
+clientEmail
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>400</y><w>110</w><h>160</h></coordinates><panel_attributes>_Property_
+--
+propertyNo (PK)
+ownerNo (FK)
+staffNo (FK)
+branchNo (FK)
+propertyType
+rooms
+rent
+address
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>350</y><w>120</w><h>90</h></coordinates><panel_attributes>_PropertyViewing_
+--
+propertyNo (PK, FK)
+clientNo (PK, FK)
+viewingDate (PK)
+comments</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>50</y><w>110</w><h>80</h></coordinates><panel_attributes>_Branch_
+--
+branchNo (PK)
+branchAddress
+mgrStaffNo (FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>50</y><w>120</w><h>70</h></coordinates><panel_attributes>_BranchTel_
+--
+branchNo (PK, FK)
+branchTelNo (PK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>120</w><h>80</h></coordinates><panel_attributes>_Manager_
+--
+staffNo (PK, FK)
+managerStartDate
+managerBonus</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>390</y><w>130</w><h>50</h></coordinates><panel_attributes>_Supervisor_
+--
+staffNo (PK, FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>460</y><w>140</w><h>100</h></coordinates><panel_attributes>_Owner_
+--
+ownerNo (PK)
+name
+ownerAddress
+ownerTelNo</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>590</y><w>110</w><h>70</h></coordinates><panel_attributes>_Person_
+--
+ownerNo (FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>590</y><w>110</w><h>70</h></coordinates><panel_attributes>_Business_
+--
+ownerNo (FK)
+contactName</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>550</y><w>90</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+
+Mandatory, Or</panel_attributes><additional_attributes>10;10;70;40</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>550</y><w>80</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+</panel_attributes><additional_attributes>60;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>210</y><w>150</w><h>80</h></coordinates><panel_attributes>_Registration_
+--
+clientNo (PK, FK)
+propertyNo (PK, FK)
+staffNo (FK)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>530</y><w>120</w><h>110</h></coordinates><panel_attributes>_Preference_
+--
+clientNo (PK, FK)
+reqPropertyType 
+reqRentMaxAmt
+reqRentStartDate
+reqLocation</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>490</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..*
+owns &gt;</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>310</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=1..1
+&lt; supervises</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>60</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..1
+manages &gt;</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>60</x><y>80</y><w>60</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=1..1
+is-a &gt;</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>70</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..*
+has &gt;</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>120</y><w>120</w><h>120</h></coordinates><panel_attributes>lt=-
+m1=1..*
+m2=1..1
+works at &gt;</panel_attributes><additional_attributes>10;100;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>230</y><w>180</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=0..*
+process &gt;</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>120</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..*
+registered to &gt;</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>120</y><w>60</w><h>300</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=0..*
+lists &gt;</panel_attributes><additional_attributes>10;10;10;280</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>280</y><w>140</w><h>140</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=0..100
+oversees &gt;</panel_attributes><additional_attributes>10;10;100;120</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>400</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=0..*
+takes &gt;</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>500</x><y>490</y><w>120</w><h>170</h></coordinates><panel_attributes>_Lease_
+--
+leaseNo (PK)
+clientNo (FK)
+propertyNo (FK)
+monthlyRentAmt
+paymentMethod
+repositPaidIndicator
+rentStartDate
+rentFinishDate
+rentDuration</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>510</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=0..*
+leased in &gt;</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>250</y><w>210</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..1
+&lt; agrees</panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>360</y><w>110</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=0..*
+&lt; views</panel_attributes><additional_attributes>90;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>380</y><w>150</w><h>180</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=0..*
+&lt; holds</panel_attributes><additional_attributes>120;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>380</y><w>90</w><h>170</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..1
+requests &gt;</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element></diagram>
