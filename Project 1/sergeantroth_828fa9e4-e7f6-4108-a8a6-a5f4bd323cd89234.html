@@ -1,0 +1,153 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> <meta charset="gbk">  
+<title> Question: Use hoteldb;
+CREATE TABLE hotel
+( hotelNo numeric primary key
+, name    varchar(40...</title> 
+<style>  
+  *{margin: 0;padding: 0;}   
+  .main{width: 900px;margin: auto;}   
+  .topic{margin: 20px 0;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);border-radius: 6px;}    
+  .t1 {padding: 10px;}    
+  .topic img{   
+       max-width: 100%;  
+    }  
+  .pbImageToTextHint{display: none;}  
+  .t2 li{list-style: none;border: 1px solid #ccc;}  
+   .answer-given-body p img{  
+            width: auto !important;height: auto!important;max-width: 100% !important;  
+    }  
+    .hidden {visibility:hidden; }    
+  </style>  
+</head>  
+<body>  
+<div class="main">    <h2> Question:<span class="title">Question: Use hoteldb;
+CREATE TABLE hotel
+( hotelNo numeric primary key
+, name    varchar(40...</span></h2>    <div class="topic t1">        <div class="pbImages"><img src="" />        </div>    </div>    <div class="topic t2"><div class="answer-given-body ugc-base">
+                    <p>Short Summary:</p>
+<p>Provided the Creation, Insertion and Select queries performed on
+tables Hotel, Room, Guest and Booking present in hoteldb</p>
+<p>Answer:</p>
+<p>-- use hoteldb to perform the below queries</p>
+<p>use hoteldb;</p>
+<p>-- create table HOTEL with below attributes, respective data
+types, primary key</p>
+<p>CREATE TABLE HOTEL(</p>
+<p>hotelNo numeric primary key,</p>
+<p>name varchar(40),</p>
+<p>address varchar(40),</p>
+<p>city varchar(200)</p>
+<p>);</p>
+<p>-- create table ROOM with below attributes, respective data
+types, primary and foreign key</p>
+<p>CREATE TABLE ROOM(</p>
+<p>roomNo numeric Primary Key,</p>
+<p>hotelNo numeric References HOTEL,</p>
+<p>type varchar(20),</p>
+<p>price dec(9,2)</p>
+<p>);</p>
+<p>-- create table GUEST with below attributes, respective data
+types, primary key</p>
+<p>CREATE TABLE GUEST(</p>
+<p>guestNo numeric primary key,</p>
+<p>name varchar(40),</p>
+<p>address varchar(40)</p>
+<p>);</p>
+<p>-- create table BOOKING with below attributes, respective data
+types, foreign key</p>
+<p>CREATE TABLE BOOKING(</p>
+<p>hotelNo numeric REFERENCES Hotel,</p>
+<p>guestNo numeric REFERENCES Guest,</p>
+<p>dateFrom date NOT NULL,</p>
+<p>dateTo date,</p>
+<p>roomNo numeric REFERENCES ROOM</p>
+<p>);</p>
+<p>-- insert given values into HOTEL table</p>
+<p>INSERT INTO HOTEL VALUES (1,'Hilton Hotel','123 Main st','New
+Jersey');</p>
+<p>INSERT INTO HOTEL VALUES (2,'Holiday Inn','50 3rd Ave.', 'New
+York');</p>
+<p>INSERT INTO HOTEL VALUES (3,'Governor Hotel','8243 Berkley
+Sq.','London');</p>
+<p>INSERT INTO HOTEL VALUES (4,'New World Hotel','30 East River
+Rd', 'Hong Kong');</p>
+<p>INSERT INTO HOTEL VALUES (5,'Santos Hotel','15 Main Rd',
+'Philippines');</p>
+<p>-- insert given values into room table</p>
+<p>insert into room values (1,1,'Family',200);</p>
+<p>insert into room values (2,1,'Family',200);</p>
+<p>insert into room values (3,1,'Single',100);</p>
+<p>insert into room values (4,1,'Single',100);</p>
+<p>insert into room values (5,2,'Family',80);</p>
+<p>insert into room values (6,2,'Family',85);</p>
+<p>insert into room values (7,2,'Family',80);</p>
+<p>insert into room values (8,3,'Single',35);</p>
+<p>insert into room values (9,3,'Double',115);</p>
+<p>insert into room values (10,3,'Double',115);</p>
+<p>insert into room values (11,3,'Family',150);</p>
+<p>insert into room values (12,4,'Single',30);</p>
+<p>insert into room values (13,4,'Single',30);<br/>
+insert into room values (14,4,'Single',30);</p>
+<p>insert into room values (15,4,'Double',90);</p>
+<p>insert into room values (16,4,'Double',90);</p>
+<p>insert into room values (17,4,'Double',90);</p>
+<p>insert into room values (18,4,'Family',110);</p>
+<p>insert into room values (19,4,'Family',110);</p>
+<p>insert into room values (20,5,'Double',38);</p>
+<p>insert into room values (21,5,'Double',38);</p>
+<p>insert into room values (22,5,'Single',32);</p>
+<p>insert into room values (23,5,'Single',32);</p>
+<p>-- insert given values into guest table</p>
+<p>insert into guest values (1,'John Doe','Los Angeles');</p>
+<p>insert into guest values (2,'Mary Jane','New York');</p>
+<p>insert into guest values (3,'Hank Kim','London');</p>
+<p>insert into guest values (4,'Bob Jones','London');</p>
+<p>insert into guest values (5,'Paul John','New York');</p>
+<p>insert into guest values (6,'Ann Smith','New York');</p>
+<p>insert into guest values (7,'James Mann','London');</p>
+<p>insert into guest values (8,'Mary Mann','London');</p>
+<p>insert into guest values (9,'Jim Jones','New York');</p>
+<p>insert into guest values (10,'Tom Jones','Los Angeles');</p>
+<p>insert into guest values (11,'Jimmy Johnson','Boston');</p>
+<p>insert into guest values (12,'Harry Coleman','Dallas');</p>
+<p>insert into guest values (13,'Bob James','Los Angeles');</p>
+<p>insert into guest values (18,'John Mary','London');</p>
+<p>insert into guest values (21,'Jeff Bridges','London');</p>
+<p>insert into guest values (23,'Larry Cohen','New York');</p>
+<p>Question 1)</p>
+<p>-- select columns h.name, h.address, r.roomNo, r.type,
+r.price</p>
+<p>select h.name, h.address, r.roomNo, r.type, r.price</p>
+<p>from room as r -- from room table with an alias name r</p>
+<p>inner join hotel as h -- inner join hotel to room with an alias
+name h</p>
+<p>on r.hotelNo = h.hotelNo -- on condition to join both the
+tables</p>
+<p>where type = 'Family'; -- where condition to get the Family
+room</p>
+<p>Question 2)</p>
+<p>-- select columns h.name, round(avg(r.price),2) as 'average
+price'</p>
+<p>select h.name, round(avg(r.price),2) as 'average price'</p>
+<p>from room as r -- from room table with an alias name r</p>
+<p>inner join hotel as h -- inner join hotel to room with an alias
+name h</p>
+<p>on r.hotelNo = h.hotelNo -- on condition to join both the
+tables</p>
+<p>group by h.name; -- group by column hotel name<br/>
+Question 3)</p>
+<p>In guest table the city column is not given also address column
+has the city values. Hence I have provided guestname, guestaddress
+columns in the query</p>
+<p>select name, address -- select column name, address</p>
+<p>from guest -- from guest table</p>
+<p>where address like '%London%' -- where condition to get address
+guests that live in London</p>
+<p>order by name asc; -- order by guest name in alphabetically</p>
+
+                    
+                </div>
+                
+                </div></div></html>
